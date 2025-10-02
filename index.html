@@ -4,398 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hayfa Menzli - Web Developer Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            color: white;
-            padding: 4rem 1.5rem;
-            text-align: center;
-        }
-
-        .avatar {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; /* Pour que l'image reste dans le cercle */
-            background: none; /* Supprime le gradient précédent */
-        }
-
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Remplit le cercle sans déformation */
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header p {
-            font-size: 1.25rem;
-            color: #cbd5e1;
-            margin-bottom: 2rem;
-        }
-
-        .header-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #2563eb;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border: 1px solid #94a3b8;
-            color: white;
-        }
-
-        .btn-outline:hover {
-            border-color: white;
-            background: white;
-            color: #0f172a;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 4rem 1.5rem;
-        }
-
-        .section-alt {
-            background: #f8fafc;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        /* About Section */
-        .about-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            padding: 3rem;
-            max-width: 4xl;
-            margin: 0 auto;
-        }
-
-        .about-text {
-            font-size: 1.125rem;
-            color: #64748b;
-            text-align: center;
-            line-height: 1.8;
-        }
-
-        /* Projects Grid */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 6xl;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .project-type {
-            background: #dbeafe;
-            color: #1e40af;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: #1e293b;
-        }
-
-        .project-description {
-            color: #64748b;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: #f1f5f9;
-            color: #374151;
-            font-size: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .project-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #64748b;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.2s;
-        }
-
-        .project-link:hover {
-            color: #1e293b;
-        }
-
-        .project-link.live {
-            color: #2563eb;
-        }
-
-        .project-link.live:hover {
-            color: #1d4ed8;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 4xl;
-            margin: 0 auto;
-        }
-
-        .skill-card {
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            text-align: center;
-            transition: box-shadow 0.2s;
-        }
-
-        .skill-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-icon {
-            width: 2rem;
-            height: 2rem;
-            margin: 0 auto 0.75rem;
-            color: #2563eb;
-        }
-
-        .skill-name {
-            font-weight: 500;
-            color: #1e293b;
-        }
-
-        /* Contact Section */
-        .contact-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            padding: 3rem;
-            max-width: 4xl;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-text {
-            font-size: 1.125rem;
-            color: #64748b;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: #374151;
-            text-decoration: none;
-            font-size: 1.125rem;
-            transition: color 0.2s;
-        }
-
-        .contact-link:hover {
-            color: #2563eb;
-        }
-
-        .contact-divider {
-            width: 1px;
-            height: 1.5rem;
-            background: #d1d5db;
-            display: none;
-        }
-
-        /* Footer */
-        .footer {
-            background: #0f172a;
-            color: white;
-            padding: 2rem 1.5rem;
-            text-align: center;
-        }
-
-        .footer p {
-            color: #94a3b8;
-        }
-
-        /* Responsive Design */
-        @media (min-width: 640px) {
-            .contact-links {
-                flex-direction: row;
-                justify-content: center;
-            }
-            
-            .contact-divider {
-                display: block;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .header h1 {
-                font-size: 4rem;
-            }
-            
-            .section-title {
-                font-size: 3rem;
-            }
-        }
-
-        /* Icons (using Unicode symbols) */
-        .icon-mail::before { content: "✉"; }
-        .icon-github::before { content: "⚡"; }
-        .icon-external::before { content: "↗"; }
-        .icon-code::before { content: "⚡"; }
-        .icon-database::before { content: "🗄"; }
-        .icon-globe::before { content: "🌐"; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="public/H.png">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Artistic Hero Header -->
     <header class="header">
-        <div class="container">
-            <div class="avatar">
-                <img src="IMG_5447.png" alt="Hayfa Menzli" class="avatar-img">
+        <div class="decorative-circle circle-1"></div>
+        <div class="decorative-circle circle-2"></div>
+        
+        <div class="header-content">
+            <div class="header-text">
+                <div class="logo-container">
+                    <img src="public/H.png" alt="HM Logo" class="header-logo">
+                </div>
+                <h1 onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" style="cursor: pointer;">Hayfa<br>Menzli</h1>
+                <p class="subtitle">Web Developer & Designer</p>
+                <div class="header-buttons">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hayfa.menzli@isimg.tn&su=Portfolio Contact - Let's Work Together&body=Hi Hayfa,%0D%0A%0D%0AI found your portfolio and would like to discuss..." target="_blank" class="btn btn-primary">
+                        <span class="icon-mail"></span>
+                        Let's Talk
+                    </a>
+                    <a href="https://github.com/Hayfamn" target="_blank" class="btn btn-outline">
+                        <span class="icon-github"></span>
+                        View GitHub
+                    </a>
+                </div>
             </div>
-            <h1>Hayfa Menzli</h1>
-            <p>Web Developer</p>
-            <div class="header-buttons">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hayfa.menzli@isimg.tn&su=Portfolio Contact - Let's Work Together&body=Hi Hayfa,%0D%0A%0D%0AI found your portfolio and would like to discuss..." target="_blank" class="btn btn-primary">
-                    <span class="icon-mail"></span>
-                    Contact Me
-                </a>
-                <a href="https://github.com/Hayfamn" target="_blank" class="btn btn-outline">
-                    <span class="icon-github"></span>
-                    GitHub
-                </a>
+            <div class="avatar" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
+                <img src="IMG_5447.png" alt="Hayfa Menzli" class="avatar-img">
             </div>
         </div>
     </header>
 
     <!-- About Section -->
-    <section class="section">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">About</h2>
+            <p class="section-subtitle">Who I am</p>
             <div class="about-card">
                 <p class="about-text">
-                    Passionate web developer driven by the challenge of building sleek, modern, and functional websites. I learn by doing — and these personal projects are where my creativity comes to life.
+                    I'm a passionate full-stack web developer and designer specializing in building dynamic and responsive web applications. With expertise spanning frontend technologies like React and JavaScript to backend frameworks including Laravel, Node.js, and PHP, I create seamless digital experiences from concept to deployment. Beyond coding, I bring creative vision to life through UI/UX design and branding, crafting visually appealing interfaces that enhance user experience. My strong foundation in database management with SQL and PL/SQL, combined with modern development practices using Git, allows me to deliver robust, scalable, and beautifully designed solutions.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">My Projects</h2>
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">Selected work</p>
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -403,7 +62,7 @@
                         <div class="project-header">
                             <span class="project-type">Full-Stack</span>
                         </div>
-                        <h3 class="project-title">Mini Project: "Manage a Student's Average"</h3>
+                        <h3 class="project-title">Manage a Student's Average</h3>
                         <p class="project-description">
                             A full-stack site using PHP for the back-end and JavaScript for the front-end to simplify student grade management.
                         </p>
@@ -416,7 +75,7 @@
                         <div class="project-links">
                             <a href="https://github.com/Hayfamn/MiniProjet" target="_blank" class="project-link">
                                 <span class="icon-github"></span>
-                                Code
+                                View Code
                             </a>
                         </div>
                     </div>
@@ -440,7 +99,7 @@
                         <div class="project-links">
                             <a href="https://github.com/Hayfamn/Pharmacy" target="_blank" class="project-link">
                                 <span class="icon-github"></span>
-                                Code
+                                View Code
                             </a>
                         </div>
                     </div>
@@ -465,7 +124,7 @@
                         <div class="project-links">
                             <a href="https://github.com/Hayfamn/e-commerce" target="_blank" class="project-link">
                                 <span class="icon-github"></span>
-                                Code
+                                View Code
                             </a>
                         </div>
                     </div>
@@ -478,22 +137,35 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">What I work with</p>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <div class="skill-icon icon-code"></div>
+                    <div class="skill-icon icon-html"></div>
                     <h3 class="skill-name">HTML5 / CSS3</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon icon-code"></div>
+                    <div class="skill-icon icon-js"></div>
                     <h3 class="skill-name">JavaScript</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon icon-code"></div>
+                    <div class="skill-icon icon-php"></div>
                     <h3 class="skill-name">PHP</h3>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon icon-code"></div>
+                    <div class="skill-icon icon-java"></div>
                     <h3 class="skill-name">Java</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon icon-laravel"></div>
+                    <h3 class="skill-name">Laravel</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon icon-node"></div>
+                    <h3 class="skill-name">Node.js</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon icon-react"></div>
+                    <h3 class="skill-name">React</h3>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon icon-database"></div>
@@ -511,14 +183,19 @@
                     <div class="skill-icon icon-github"></div>
                     <h3 class="skill-name">Git / GitHub</h3>
                 </div>
+                <div class="skill-card">
+                    <div class="skill-icon icon-design"></div>
+                    <h3 class="skill-name">UI/UX Design</h3>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section section-alt">
+    <section class="section">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Connect</h2>
+            <p class="section-subtitle">Let's work together</p>
             <div class="contact-card">
                 <p class="contact-text">
                     Ready to bring your next project to life? Let's discuss how we can work together.
@@ -541,7 +218,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 Hayfa Menzli – Web Developer Portfolio</p>
+            <p>© 2025 Hayfa Menzli – Crafted with creativity</p>
         </div>
     </footer>
 </body>
